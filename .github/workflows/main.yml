@@ -40,4 +40,4 @@ jobs:
           push: true
           tags: |
             rfabricio/rotten-potatoes:latest
-            rfabricio/rotten-potatoes:${{ github.run_number }}
+            rfabricio/rotten-potatoes:v1.0.${{ github.run_number }}
