@@ -32,7 +32,6 @@ jobs:
           username: rfabricio
           # Password or personal access token used to log against the Docker registry
           password: 8b77e869-0980-459c-b230-8864c8f204f5
-        run: echo Terminado o docker login
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -45,4 +44,3 @@ jobs:
           tags: |
             rfabricio/rotten-potatoes:latest
             rfabricio/rotten-potatoes:v1.0.${{ github.run_number }}
-        run: echo Terminado o Build e Push do Docker Image
