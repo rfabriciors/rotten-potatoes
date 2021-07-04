@@ -4,6 +4,8 @@ name: CI-CD
 
 # Controls when the workflow will run
 on:
+  # Definição dos eventos que iniciam o Workflow
+  # push e pull-request iniciam por padrão o Workflow. Para testes, disparos manuais (dispatch) também são permitidos
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
@@ -15,9 +17,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains a single job called "CI"
   CI:
     # The type of runner that the job will run on
+    # agente que executa o job
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -29,7 +32,8 @@ jobs:
           username: rfabricio
           # Password or personal access token used to log against the Docker registry
           password: 8b77e869-0980-459c-b230-8864c8f204f5
-    
+        run: echo Terminado o docker login
+        
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Build and push Docker images
@@ -41,3 +45,4 @@ jobs:
           tags: |
             rfabricio/rotten-potatoes:latest
             rfabricio/rotten-potatoes:v1.0.${{ github.run_number }}
+        run: echo Terminado o Build e Push do Docker Image
