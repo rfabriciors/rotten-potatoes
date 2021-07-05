@@ -14,7 +14,6 @@ spec:
       containers:
       - name: movies
         image: rfabricio/rotten-potatoes:latest
-        command: ["sleep", "infinity"]
         resources:
           limits:
             memory: "128Mi"
