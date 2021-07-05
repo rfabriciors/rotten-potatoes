@@ -42,3 +42,14 @@ jobs:
           tags: |
             rfabricio/rotten-potatoes:latest
             rfabricio/rotten-potatoes:v1.0.${{ github.run_number }}
+  CD:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes set context
+        uses: Azure/k8s-set-context@v1.1
+        with:
+          method: kubeconfig
+            kubeconfig: ${{ secrets.KUBECONFIG }}
+          
+          
