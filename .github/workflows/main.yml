@@ -44,6 +44,7 @@ jobs:
             rfabricio/rotten-potatoes:v1.0.${{ github.run_number }}
   CD:
     runs-on: ubuntu-latest
+    needs: [CI]
     steps:
       - uses: actions/checkout@v2
       - name: Kubernetes set context
